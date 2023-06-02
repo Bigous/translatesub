@@ -1,29 +1,27 @@
-[project]
+[tool.poetry]
 name = "translatesub"
 version = "0.1.0"
 description = "Read srt subtitle from mkv file in any language, translate it to any language and append it back to the mkv"
 readme = "README.md"
-authors = [{ name = "Richard Natal", email = "bigous@gmail.com" }]
-license = { file = "LICENSE" }
+authors = ["Richard Natal <bigous@gmail.com>"]
+license = "MIT"
 classifiers = [
     "License :: OSI Approved :: MIT License",
     "Programming Language :: Python",
     "Programming Language :: Python :: 3",
 ]
 keywords = ["translation", "subtitle", "movie", "mkv"]
-dependencies = [
-    "pycountry>=22.3.5",
-    "python-dotenv>=1.0.0",
-    "requests>=2.31.0",
-    "pysubs2>=1.6.1"
 
-]
-requires-python = ">=3.9"
+[build-system]
+requires = ["setuptools", "wheel"]
+build-backend = "setuptools.build_meta"
 
-[project.optional-dependencies]
+[tool.poetry.dependencies]
+python = ">=3.9,<4"
+pycountry = ">=22.3.5"
+python-dotenv = ">=1.0.0"
+requests = ">=2.31.0"
+pysubs2 = ">=1.6.1"
 
-[project.urls]
-Homepage = "https://github.com/Bigous/translatesub"
-
-[project.scripts]
-realpython = "translatesub.__main__:main"
+[tool.poetry.scripts]
+translatesub = "translatesub.__main__:main"
